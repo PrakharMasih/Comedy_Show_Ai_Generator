@@ -1,0 +1,7 @@
+audio/
+env/
+.env
+images/
+videos/
+pycache/
+test.db 
