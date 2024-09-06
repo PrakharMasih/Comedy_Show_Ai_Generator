@@ -13,11 +13,17 @@ const Home = () => {
     setChats([]);
   }, []);
 
+  const clearChatsAndVideos = useCallback(() => {
+    setChats([]);
+    setVideoUrls({});
+    setGeneratingVideos({});
+  }, []);
+
   useEffect(() => {
-    const handleClearChats = () => clearChats();
-    window.addEventListener('clearChats', handleClearChats);
-    return () => window.removeEventListener('clearChats', handleClearChats);
-  }, [clearChats]);
+    const handleClearChatsAndVideos = () => clearChatsAndVideos();
+    window.addEventListener('clearChats', handleClearChatsAndVideos);
+    return () => window.removeEventListener('clearChats', handleClearChatsAndVideos);
+  }, [clearChatsAndVideos]);
 
   useEffect(() => {
     getConversations();

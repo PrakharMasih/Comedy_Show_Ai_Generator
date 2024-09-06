@@ -14,6 +14,13 @@ const Navbar = () => {
         console.log(data);
 
         window.dispatchEvent(new Event('clearChats'));
+
+        // Clear browser cache
+        if ('caches' in window) {
+          const cacheNames = await caches.keys();
+          await Promise.all(cacheNames.map(name => caches.delete(name)));
+          console.log('Browser cache cleared');
+        }
       } catch (error) {
         console.error("Failed to fetch conversations:", error);
       }

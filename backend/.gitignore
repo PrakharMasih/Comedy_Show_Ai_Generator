@@ -3,5 +3,6 @@ env/
 .env
 images/
 videos/
-pycache/
+__pycache__/
+*.py[cod]
 test.db 
